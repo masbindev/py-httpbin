@@ -1,7 +1,10 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 
 app = FastAPI()
 
 @app.get("/")
-async def read_root():
-    return {"Hello": "World"}
+@app.post("/")
+async def read_root(request: Request):
+    headers = dict(request.headers)
+    body = await request.body()
+    return {"headers": headers, "body": body.decode()}
