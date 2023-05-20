@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- center element -->
+<div class="flex items-center justify-center pt-20">
+    <table class="table-auto">
+        <thead>
+            <tr>
+                <th class="px-4 py-2">Log Date</th>
+                <th class="px-4 py-2">CSV File</th>
+                <th class="px-4 py-2">TXT File</th>
+            </tr>
+            <!-- display the log based on file date: date | filename.csv | filename.txt -->
+            {% for file_date in log_file_dates %}
+            <tr>
+                <td class="border px-4 py-2">{{ file_date }}</td>
+                <td class="border px-4 py-2">
+                    <a class="px-1 py-1 rounded border-solid bg-blue-200 text-sm text-orange-600" href="./logs/{{file_date}}.csv">Download CSV</a>
+                </td>
+                <td class="border px-4 py-2">
+                    <a class="px-1 py-1 rounded border-solid bg-blue-200 text-sm text-orange-600" href="./logs/{{file_date}}.txt">Download TXT</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+{% endblock %}
