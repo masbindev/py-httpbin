@@ -10,8 +10,17 @@ My approach to learn python bu building a simple httpbin.org clone (oversimplifi
 - docker-compose
 
 ## How to run
+
+### using python venv
+- `python3 -m venv venv`
+- `source venv/bin/activate`
+- `pip install -r requirements.txt`
+- `uvicorn main:app --reload`
+
+### using docker
 - `docker-compose up --build`
 - `docker-compose up --build -d` (detached mode)
+
 
 ## features
 - [x] / --> view all of your http request (headers, body, etc)
