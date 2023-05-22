@@ -16,6 +16,17 @@ async def read_root(request: Request):
     response = {"headers": headers, "body": body.decode()}
     return templates.TemplateResponse("response.html", {"request": request, "response": response})
 
+@app.get("/ip")
+@app.post("/ip")
+async def read_ip(request: Request):
+    # get client ip address
+    client_host = None
+    if request.client:
+        if request.client.host:
+            client_host = request.client.host
+    print(client_host)
+    return templates.TemplateResponse("single_response.html", {"request": request , "response_content": client_host})
+
 @app.get("/logs")
 async def logs(request: Request):
     log_dir = "logs"

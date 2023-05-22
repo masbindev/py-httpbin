@@ -14,9 +14,7 @@ My approach to learn python bu building a simple httpbin.org clone (oversimplifi
 - `docker-compose up --build -d` (detached mode)
 
 ## features
-- [x] / --> view all of your http request
-- [x] /ip
-- [x] /headers
-- [x] /user-agent
+- [x] / --> view all of your http request (headers, body, etc)
+- [x] /ip --> view your ip
 - [x] /logs --> view all logs (it is saved on ./logs by default)
 
